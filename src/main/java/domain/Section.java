@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -16,6 +17,7 @@ public class Section implements Serializable{
      */
     private static final long serialVersionUID = -3403862384274127797L;
     
+    private Long id;
     private String nom;
     private List<Carte> cartes;
     private Tableau tableau;
@@ -33,11 +35,26 @@ public class Section implements Serializable{
     public Section(String nom) {
         this.nom = nom;
     }
+    
+    /**
+     * @return the id
+     */
+    @Id
+    @GeneratedValue
+    public Long getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     /**
      * @return the nom
      */
-    @Id
     public String getNom() {
         return nom;
     }
@@ -78,5 +95,6 @@ public class Section implements Serializable{
     public void setTableau(Tableau tableau) {
         this.tableau = tableau;
     }
+
 
 }
